@@ -1,0 +1,142 @@
+:root {
+    --bg-dark: #0f172a;
+    --bg-card: rgba(30, 41, 59, 0.7);
+    --accent: #38bdf8;
+    --text-main: #f8fafc;
+    --text-dim: #94a3b8;
+    --header-blur: rgba(15, 23, 42, 0.8);
+    --transition: all 0.25s ease;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-main);
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem 0;
+    text-align: center;
+    background: var(--header-blur);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+header h1 {
+    font-size: 1.6rem;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 110px 1.5rem 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Card */
+.card {
+    background: var(--bg-card);
+    backdrop-filter: blur(10px);
+    border-radius: 14px;
+    padding: 1rem;
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    will-change: transform;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Image (BIG + ORIGINAL RATIO 🔥) */
+.card img {
+    width: 100%;
+    height: auto;
+    max-height: 300px; /* 🔥 perfect big size */
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+}
+
+/* Title */
+.card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+/* Buttons container */
+.btns {
+    margin-top: 0.6rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* BUTTON */
+.btns a {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 20px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    cursor: pointer;
+    transition: var(--transition);
+    min-width: 120px;
+    touch-action: manipulation;
+}
+
+/* Hover */
+.btns a:hover {
+    background: var(--accent);
+    color: #000;
+    transform: translateY(-2px);
+}
+
+/* Click */
+.btns a:active {
+    transform: scale(0.95);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        padding: 90px 1rem 40px;
+    }
+
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    /* Mobile me bhi bada image 🔥 */
+    .card img {
+        max-height: 220px;
+    }
+}
